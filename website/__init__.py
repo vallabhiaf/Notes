@@ -9,7 +9,7 @@ def create_app():
     #import blueprint for app to use them 
     from .views import views
 
-    #register a blue print with our flask appliation which will can now connected from the browser
+    #register a blue print with our flask appliation which will can now connected from the browser after routing
     app.register_blueprint(views,url_prefix='/')
 
 
