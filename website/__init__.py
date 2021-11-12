@@ -8,9 +8,11 @@ def create_app():
     app.config['SECRET_KEY']='encrypt'
     #import blueprint for app to use them 
     from .views import views
+    from .auth import auth
 
     #register a blue print with our flask appliation which will can now connected from the browser after routing
     app.register_blueprint(views,url_prefix='/')
+    app.register_blueprint(auth,url_prefix='/')
 
 
     return app
