@@ -1,6 +1,10 @@
 from flask import Flask
+from flask_sqlalchemy import  SQLAlchemy
 'This create our website folder into a pacakge and whenever it is imported everything in this file is executed automatically'
-
+#database object created.Everything created will be added to this database object 
+db=SQLAlchemy()
+#databse name
+DB_NAME="database.db"
 def create_app():
     #This line initiates a light flask server
     app=Flask(__name__)
