@@ -1,15 +1,21 @@
 from flask import Flask
+#ORM to talk with sdk for DB 
 from flask_sqlalchemy import  SQLAlchemy
 'This create our website folder into a pacakge and whenever it is imported everything in this file is executed automatically'
 #database object created.Everything created will be added to this database object 
 db=SQLAlchemy()
 #databse name
 DB_NAME="database.db"
+
 def create_app():
     #This line initiates a light flask server
     app=Flask(__name__)
     #This line is used to encrypt/decreypt session cookies of our web server. This should be confedential in our prod environment
     app.config['SECRET_KEY']='encrypt'
+    #sqllite Databse is stored at the said location 
+    app.config['SQLALCHEMY_DATABASE_URI']=f'sqllite:///{DB_NAME}]'
+    #intialize a db and telling db which app is going to be used with this db 
+    db.init_app(app)
     #import blueprint for app to use them 
     from .views import views
     from .auth import auth
