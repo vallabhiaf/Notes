@@ -21,8 +21,8 @@ class Note(db.Model):
 class User(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
     email=db.Column(db.String(150),unique=True)
-    password=db.Column(db.String(150),unique=True)
-    first_name=db.Column(db.String(150),unique=True)
+    password=db.Column(db.String(150))
+    first_name=db.Column(db.String(150))
     
     #all the notes(note id) belonging to a particilar user would be stored here as a list(reference of a class`)
     notes=db.relationship('Note')
